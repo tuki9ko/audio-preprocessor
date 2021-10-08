@@ -12,12 +12,17 @@ if __name__ == '__main__':
 	if len(args) >= 2:
 		file_name = args[1]
 	else:
-		print("usage: python add_white_noise.py [file_name]")
+		print("usage: python add_white_noise.py [file_name] [rate]")
 		exit
 	
+	if len(args) >= 3:
+		rate = float(args[2])
+	else:
+		rate = 0.002
+
 	y, sr = librosa.load(file_name)
 
-	z = add_white_noise(y)
+	z = add_white_noise(y, rate)
 
 	sf.write("white_" + file_name, z, sr)
 
