@@ -142,3 +142,4 @@ cython_debug/
 data/
 white_data/
 shift_data/
+stretch_data/
